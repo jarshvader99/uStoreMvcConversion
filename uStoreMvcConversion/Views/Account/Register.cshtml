@@ -9,7 +9,7 @@
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <h4>To gain access, simply enter an email (fake is okay). Currently, email confirmation is on the TODO list, for now we will simulate that process. So go ahead and create you account.</h4>
+        <h4>To gain access, simply enter an email (fake is okay). Currently, email confirmation is on the TODO list, for now we will simulate that process. So go ahead and create your account.</h4>
         <hr />
         @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group row">
