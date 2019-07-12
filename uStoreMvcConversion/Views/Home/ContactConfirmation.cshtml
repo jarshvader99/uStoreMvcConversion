@@ -1,0 +1,30 @@
+﻿@model uStoreMvcConversion.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact Confirmation";
+}
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Thanks @Model.Name!</h1>
+                <!--<nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Contact</a>
+                </nav>-->
+            </div>
+        </div>
+    </div>
+</section>
+<div class="confirmMessage">
+
+        
+            <!-- response message, only visible if message is sent successfully. -->
+            <h2 id="confirmText">
+                Thanks for contacting me, @Model.Name! I will get back to you as soon as possible.
+            </h2>
+        
+   
+</div>
+
+

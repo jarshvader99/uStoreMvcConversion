@@ -1,0 +1,105 @@
+﻿@model IEnumerable<UStore.data1.EF.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<div id="mainContent">
+    <h2 class="text-center">@ViewBag.Title</h2>
+    @if (User.IsInRole("Employee") || User.IsInRole("Admin"))
+    {
+        <p>
+            @Html.ActionLink("Add New Product", "Create", null, new { @class="btn btn-warning"})
+        </p>
+    }
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductImage)
+                   
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Notes)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.ReferenceURL)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.Category.CategoryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status.StatusName)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.Name)*@
+                        @Html.ActionLink(item.Name, "Details", new { id = item.ProductID })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UnitsInStock)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.ProductImage)*@
+                        <img src="~/Content/img/product/@item.ProductImage" alt="@item.Name" style="width:60px; height: 75px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.ReferenceURL)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status.StatusName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) 
+                        @if (User.IsInRole("Admin"))
+                        {
+                           @:| @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+    $(document).ready( function () {
+    $('.table').DataTable();
+    });
+    </script>  
+}

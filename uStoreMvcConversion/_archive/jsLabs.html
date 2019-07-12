@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Introduction to JavaScript | JavaScript Playground</title>
+    <!-- Bootstrap 3.3.7 minified CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Optional theme -->
+    <link href="css/bootstrap-flatly-theme.css" rel="stylesheet" />
+
+    <!--Custom CSS-->
+    <link href="css/custom.css" rel="stylesheet" />
+
+    <!--Favicon-->
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .calcDivider {
+            border-bottom: 2px solid black;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <!--Collapsible nav-->
+    <nav id="myTopnav" class="navbar-default navbar-fixed-top">
+        <a href="index.html" class="navbar-brand">JavaScript Playground</a>
+        <a href="javascript:void(0);" onclick="responsiveNav()"
+           class="pull-right" id="navMenu">&#9776;</a>
+
+        <ul class="topnav" id="topnav">
+            <li>
+                <a href="index.html">
+                    <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </li>
+            <li>
+                <a href="jsNotes.html">
+                    JavaScript
+                </a>
+            </li>
+            <li>
+                <a href="jQueryNotes.html">
+                    jQuery
+                </a>
+            </li>
+            <li>
+                <a href="jQueryPlugins.html">
+                    jQuery Plugins
+                </a>
+            </li>
+            <!--Navbar Dropdown-->
+            <li class="dropdown active">
+                <a href="#" class="dropdown-toggle"
+                   role="button" data-toggle="dropdown" target="_blank"
+                   aria-haspopup="true" aria-expanded="false">
+                    Labs<span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li class="active">
+                        <a href="jsLabs.html">
+                            JavaScript
+                        </a>
+                    </li>
+                    <li>
+                        <a href="jQueryLabs.html">
+                            jQuery
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+            <!--/Navbar dropdown-->
+            <li>
+                <a href="forms.html">
+                    Forms
+                </a>
+            </li>
+        </ul>
+    </nav><!--/#navbar-->
+    <!--/Main Nav-->
+    <!--Page Header-->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>JavaScript Labs</h1>
+        </div>
+    </div>
+    <!--/Page Header-->
+    <!--Main Content-->
+    <main class="container">
+        <div class="row text-center">
+            <article class="col-md-4">
+                <h2>Mad Libs</h2>
+                <form action="javascript:void(0)" method="get" id="madLib">
+                    <div>
+                        <label for="country">Enter a Foreign Country:</label>
+                        <input type="text" id="tbCountry" name="country" />
+                    </div>
+                    <div>
+                        <label for="adjective">Enter a adjective:</label>
+                        <input type="text" id="tbAdjective" name="adjective" />
+                    </div>
+                    <div>
+                        <label for="animal">Enter a animal:</label>
+                        <input type="text" id="tbAnimal" name="animal" />
+                    </div>
+                    <div>
+                        <label for="verb">Enter a verb:</label>
+                        <input type="text" id="tbVerb" name="verb" />
+                    </div>
+                    <div>
+                        <label for="place">Enter a place:</label>
+                        <input type="text" id="tbPlace" name="place" />
+                    </div>
+                    <div>
+                        <label for="liquid">Enter a liquid:</label>
+                        <input type="text" id="tbLiquid" name="liquid" />
+                    </div>
+                    <div>
+                        <input type="button" value="Submit" class="btn btn-info"
+                               id="madLibSubmit" />
+                    </div>
+                </form>
+                <div>
+                    <p id="madLibResults"></p>
+                </div>
+            </article>
+            <article class="col-md-4">
+                <h2>Multiples of 7</h2>
+                <input type="button" id="multiplesBtn" value="Calculate Multiples" onclick="calcMultiples()" />
+                <p id="multiplesResults"></p>
+            </article>
+            <article class="col-md-4">
+                <h2>Celsius Converter</h2>
+                <form action="javascript:void(0)" method="get" id="celsiusForm">
+                    <div>
+                        <label for="tbCelsius">Enter a Temp in Celsius:</label>
+                        <input type="text" name="tbCelsius" id="tbCelsius" />
+                    </div>
+                    <div>
+                        <input type="submit" name="celsiusBtn" id="celsiusBtn" value="Convert to Fahrenheit" />
+                    </div>
+                </form>
+                <p id="tempResults"></p>
+            </article>
+        </div>
+        <div class="row text-center">
+            <article class="col-md-4">
+                <h2>Area Calculators</h2>
+                <div class="calcDivider">
+                    <h3>Calculate the Area of a Square</h3>
+                    <div>
+                        <label for="squareHeight">Height:</label>
+                        <input id="tbSquareHeight" name="squareHeight" type="text" />
+                    </div>
+                    <div>
+                        <label for="squareWidth">Width:</label>
+                        <input id="tbSquareWidth" name="squareWidth" type="text" />
+                    </div>
+                    <div>
+                        <input type="button" value="Submit" id="squareBtn" onclick="calcSquare()" />
+                    </div>
+                    <p id="squareResults"></p>
+                </div>
+                <div class="calcDivider">
+                    <h3>Calculate the Area of a Triangle</h3>
+                    <div>
+                        <label for="triangleHeight">Height:</label>
+                        <input id="tbTriangleHeight" name="triangleHeight" type="text" />
+                    </div>
+                    <div>
+                        <label for="triangleWidth">Width:</label>
+                        <input id="tbTriangleWidth" name="triangleWidth" type="text" />
+                    </div>
+                    <div>
+                        <input type="button" value="Submit" id="triangleBtn" onclick="calcTriangle()" />
+                    </div>
+                    <p id="triangleResults"></p>
+                </div>
+                <div class="calcDivider">
+                    <h3>Calculate the Area of a Circle</h3>
+                    <div>
+                        <label for="circleRadius">Radius:</label>
+                        <input id="tbCircleRadius" name="circleRadius" type="text" />
+                    </div>
+                    <div>
+                        <input type="button" value="Submit" id="circleBtn" onclick="calcCircle()" />
+                    </div>
+                    <p id="circleResults"></p>
+                </div>
+            </article>
+            <article class="col-md-4">
+                <h2>Ring Area Calculator</h2>
+                <form action="javascript:void(0)" id="ringAreaForm" method="get">
+                    <div>
+                        <label for="outerRadius">Radius of Outer Ring:</label>
+                        <input id="tbOuterRadius" type="text" name="outerRadius" />
+                    </div>
+                    <div>
+                        <label for="innerRadius">Radius of Inner Ring:</label>
+                        <input id="tbInnerRadius" type="text" name="innerRadius" />
+                    </div>
+                    <div>
+                        <input type="submit" id="ringAreaBtn" value="Submit" />
+                    </div>
+                </form>
+                <p id="ringResults"></p>
+            </article>
+            <article class="col-md-4">
+                <h2>Change Lab</h2>
+                <form action="javascript:void(0)" method="get" id="changeForm">
+                    <div>
+                        <label for="change">Enter Amount of Money:</label>
+                        <input type="text" id="tbChange" name="change" />
+                    </div>
+                    <div>
+                        <input type="submit" id="changeBtn" value="Submit" />
+                    </div>
+                </form>
+                <p id="changeResults"></p>
+            </article>
+        </div>
+        <div class="row text-center">
+            <article class="col-md-4">
+                <h2>Basic Calculator</h2>
+                <div>
+                    <label for="numOne">Enter 1st Number:</label>
+                    <input type="number" id="tbNumOne" name="numOne" />
+                </div>
+                <div>
+                    <label for="numTwo">Enter 2nd Number:</label>
+                    <input type="number" id="tbNumTwo" name="numTwo" />
+                </div>
+                <div>
+                    <input type="button" value="+" id="basicAdd" onclick="basicAdd()" />
+                    <input type="button" value="-" id="basicSub" onclick="basicSub()" />
+                    <input type="button" value="*" id="basicMult" onclick="basicMult()" />
+                    <input type="button" value="/" id="basicDiv" onclick="basicDiv()" />
+                </div>
+                <p id="basicCalcResults"></p>
+            </article>
+            <article class="col-md-4">
+                <h2>Advanced Calculator</h2>
+                <div>
+                    <label for="numOne">Enter 1st Number:</label>
+                    <input type="number" id="tbNumOne" name="numOne" />
+                </div>
+                <div>
+                    <label for="numTwo">Enter 2nd Number:</label>
+                    <input type="number" id="tbNumTwo" name="numTwo" />
+                </div>
+                <div>
+                    <input type="button" value="+" id="advancedAdd" onclick="advancedCalc('add')" />
+                    <input type="button" value="-" id="advancedSub" onclick="advancedCalc('subtract')" />
+                    <input type="button" value="*" id="advancedMult" onclick="advancedCalc('multiply')" />
+                    <input type="button" value="/" id="advancedDiv" onclick="advancedCalc('divide')" />
+                </div>
+                <p id="advancedCalcResults"></p>
+            </article>
+        </div>
+    </main>
+    <!--/Main Content-->
+    <!--Footer-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <p class="navbar-text pull-left">
+                &copy; 2016 - <span id="copyright"></span> Your Name Here
+            </p>
+            <a href="#" class="btn navbar-btn btn-danger pull-right">
+                Go to the top!
+            </a>
+        </div>
+    </nav>
+    <!--/Footer-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jsLabs.js"></script>
+    <script type="text/javascript">
+        function responsiveNav() {
+            var topnav = document.getElementById('topnav');
+            if (!topnav.classList.contains("responsive")) {
+                topnav.classList.add("responsive");
+            } else {
+                topnav.classList.remove("responsive");
+            }
+        }
+    </script>
+</body>
+</html>

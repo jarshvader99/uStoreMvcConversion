@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="~/Content/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>@ViewBag.Title</title>
+    <!--
+        CSS
+        ============================================= -->
+    <link rel="stylesheet" href="~/Content/css/linearicons.css">
+    <link rel="stylesheet" href="~/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/themify-icons.css">
+    <link rel="stylesheet" href="~/Content/css/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/Content/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/css/nouislider.min.css">
+    <link rel="stylesheet" href="~/Content/css/ion.rangeSlider.css" />
+    <link rel="stylesheet" href="~/Content/css/ion.rangeSlider.skinFlat.css" />
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+
+    <div id="main">
+
+        <header class="header_area sticky-header">
+
+            <div class="topnav" id="myTopnav">
+                <div id="linkz">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                            <li><a href="@Url.Action("Index", "Products")"> Products</a></li>
+                            <li><a href="@Url.Action("Index", "Categories")"> Categories</a></li>
+                            <li><a href="@Url.Action("Index", "Status")"> Status</a></li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <ul>
+                            <li><a href="@Url.Action("Index", "Home")"> Home </a></li>
+                            <li><a href="@Url.Action("Products", "Home")"> Products </a></li>
+                            <li><a href="@Url.Action("FAQ", "Home")"> FAQ </a></li>
+                            <li><a href="@Url.Action("Contact", "Home")"> Contact </a></li>
+                        </ul>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <ul>
+                            <li><a href="@Url.Action("Index", "RolesAdmin")"> Roles</a></li>
+                            <li><a href="@Url.Action("Index", "UsersAdmin")"> Users</a></li>
+                        </ul>
+                    }
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+                @*<div class="col-sm-12">*@
+                <div class="shop-menu pull-right">
+                    <ul>
+                        <li>@Html.Partial("_LoginPartial")</li>
+                        <li @*id="cart-button"*@>
+                            <a href="#" id="cart"><i class="fa fa-shopping-cart"></i> CART</a>
+                            <span id="cart-notification" class="notification-counter"></span>
+                        </li>
+                    </ul>
+                </div>
+                @*</div>*@
+                @*<nav class="navbar navbar-expand-lg navbar-light main_box">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <a class="navbar-brand logo_h" href="#">uStore</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                                <ul class="nav navbar-nav menu_nav ml-auto">
+                                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Home")">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Products", "Home")">Products</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="@Url.Action("FAQ", "Home")">FAQ</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Contact", "Home")">Contact</a></li>
+                                </ul>
+                                <div class="col-md-8">
+                                    <div class="shop-menu pull-right">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li id="cart-button">
+                                                <a href="#"><i class="fa fa-shopping-cart"></i> CART</a>
+                                                <span id="cart-notification" class="notification-counter"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>*@
+            </div>
+        </header>
+        <!-- End Header Area -->
+
+
+
+
+        @RenderBody()
+
+        <footer class="footer-area section_gap">
+            <div class="container justify-content-center align-items-center">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6>Follow Us</h6>
+                            <p>Let us be social</p>
+                            <div class="footer-social d-flex align-items-center">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap" id="feeter">
+                    <p class="footer-text m-0">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy; @DateTime.Now.Year All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- End footer Area -->
+    @*<div id="adminLink" onclick="openNav()" class="button">
+        <span class="vertical-text">ADMIN</span>
+    </div>
+    <div id="adminSideNav" class="sidenav">
+        <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>//javascript:void(0) 
+        <a href="@Url.Action("Index", "UsersAdmin")">User Admin</a>
+        <a href="@Url.Action("Index", "RolesAdmin")">Roles Admin</a>
+        <a href="#">Manage Titles</a>
+        <a href="#">Manage Authors</a>
+    </div>*@
+
+    <div id="dialog" title="Shopping Cart">
+        <p id="cart-contents">Your cart is currently empty</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    @*<script src="~/Content/js/vendor/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+                crossorigin="anonymous"></script>*@
+    <script src="~/Content/js/vendor/bootstrap.min.js"></script>
+    @*<script src="~/Content/js/jquery.ajaxchimp.min.js"></script>*@
+    @*<script src="~/Content/js/jquery.nice-select.min.js"></script>
+        <script src="~/Content/js/jquery.sticky.js"></script>*@
+    @*<script src="~/Content/js/nouislider.min.js"></script>*@
+
+    @*<script src="~/Content/js/jquery.magnific-popup.min.js"></script>*@
+    @*<script src="~/Content/js/owl.carousel.min.js"></script>*@
+    <!--gmaps Js-->
+    @*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>*@
+    @*<script src="~/Content/js/gmaps.min.js"></script>*@
+    @*<script src="~/Content/js/main.js"></script>*@
+    <script src="~/Content/js/cart.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+        function openNav() {
+            document.getElementById('adminSideNav').style.width = '25%';
+            document.getElementById('adminLink').style.display = 'none';
+            document.getElementById('main').style.marginLeft = '15%';
+        }
+
+        function closeNav() {
+            document.getElementById('adminSideNav').style.width = '0px';
+            document.getElementById('adminLink').style.display = 'block';
+            document.getElementById('main').style.marginLeft = '0px';
+        }
+        $(function () {
+            $("#accordion").accordion();
+        });
+
+        $(function () {
+            $('#dialog').dialog({
+                autoOpen: false,
+                show: {
+                    effect: "fade",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+
+            //other effects available: blind, bounce, clip, drop, fold, puff, pulsate, scale, shake, and slide
+            $('#cart-button').on('click', function () {
+                $('#dialog').dialog('open');
+            });
+        });
+    </script>
+    <script>
+
+        $(function () {
+            $('#linkz ul li').each(function () {
+                var fullAnchor = $(this).find('a').attr('href');
+                var anchorCtrl = fullAnchor.split('/');
+                console.log('anchorCtrl[1]: ' + anchorCtrl[1]);
+                var fullPath = (window.location.pathname + location.search).substr(1);
+                var pathCtrl = fullPath.split('/');
+                console.log('pathCtrl[0]: ' + pathCtrl[0]);
+                if (anchorCtrl[1] == pathCtrl[0]) {
+                    $(this).addClass('selected');
+                    console.log('add selected')
+                }
+                if (anchorCtrl[1] == "Home" && window.location.pathname != fullAnchor) {
+                    $(this).removeClass('selected');
+                    console.log('remove selected');
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

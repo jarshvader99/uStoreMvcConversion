@@ -1,0 +1,52 @@
+﻿@model UStore.data1.EF.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="mainContent">
+    <h2 class="text-center">@ViewBag.Title</h2>
+    <div>
+        <div id="detailsLeft">
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Name)</strong> @Html.DisplayFor(model => model.Name)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Description)</strong> @Html.DisplayFor(model => model.Description)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Price)</strong> @Html.DisplayFor(model => model.Price)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.UnitsInStock)</strong> @Html.DisplayFor(model => model.UnitsInStock)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Notes)</strong> @Html.DisplayFor(model => model.Notes)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.ReferenceURL)</strong> @Html.DisplayFor(model => model.ReferenceURL)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Category.CategoryName)</strong> @Html.DisplayFor(model => model.Category.CategoryName)
+            </p>
+            <p>
+                <strong>@Html.DisplayNameFor(model => model.Status.StatusName)</strong> @Html.DisplayFor(model => model.Status.StatusName)
+            </p>
+        </div>
+    </div>
+    <div>
+        <div id="detailsRight">
+            <p><img class="pull-right" src="~/Content/img/product/@Model.ProductImage" alt="@Model.Name" /></p>
+        </div>
+    </div>
+    <div id="detailsClear"></div>
+
+
+    <div id="detailsFooterLeft">
+        @Html.ActionLink("Edit", "Edit", null, new { id = Model.ProductID }, new { @class = "btn btn-warning" })
+    </div>
+    <div id="detailsFooterRight">
+        @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-danger" })
+    </div>
+    <div id="detailsClear"></div>
+</div>
